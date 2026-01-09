@@ -10,7 +10,7 @@ Ele demonstra:
 - ✨ Inserção de registros aleatórios no banco a cada acesso à página PHP  
 - 📊 Dashboard web que mostra todos os registros da tabela `dados`  
 
----
+
 
 ## 🛠 Tecnologias utilizadas
 
@@ -19,7 +19,7 @@ Ele demonstra:
 - 🌐 Nginx  
 - 🗄 MySQL 8.0  
 
----
+
 
 ## ⚡ Como rodar o projeto
 
@@ -27,17 +27,20 @@ Ele demonstra:
 
 ```bash
 git clone https://github.com/seu-usuario/docker-php-mysql-app.git
-cd docker-php-mysql-app```
+cd docker-php-mysql-app
+```
 
 2. Suba os containers:
 
 ```bash
 docker-compose up --build
+```
 
 3. Abra no navegador:
 
 ```bash
 http://localhost:4500
+```
 
 🔄 Cada refresh da página insere um novo registro na tabela dados do MySQL e exibe todos os registros na tabela HTML.
 
@@ -46,20 +49,21 @@ http://localhost:4500
 ```bash
 docker exec -it meu_db mysql -uroot -p
 # Senha: Senha123
-
+```
+```bash
 USE meubanco;
 SELECT * FROM dados;
-
+```
 💡 Próximos passos / melhorias
 
-📝 Adicionar formulário para cadastro manual de alunos
+- 📝 Adicionar formulário para cadastro manual de alunos
 
-✅ Validação de dados antes de inserir
+- ✅ Validação de dados antes de inserir
 
-🎨 Melhorar estilo da tabela HTML com CSS
+- 🎨 Melhorar estilo da tabela HTML com CSS
 
-🔍 Adicionar filtros e pesquisa na tabela
+- 🔍 Adicionar filtros e pesquisa na tabela
 
-📦 Containerizar mais serviços (ex.: Redis, API externa)
+- 📦 Containerizar mais serviços (ex.: Redis, API externa)
 
 Feito por Lêda Trindade
