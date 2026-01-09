@@ -1,0 +1,31 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: meu_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Senha123
+      MYSQL_DATABASE: meubanco
+    ports:
+      - "3307:3306"   # porta do host 3307 para evitar conflito
+    volumes:
+      - ./db/banco.sql:/docker-entrypoint-initdb.d/banco.sql
+
+  php:
+    build: ./php
+    container_name: meu_php
+    volumes:
+      - ./php:/var/www/html
+    depends_on:
+      - db
+
+  nginx:
+    image: nginx:latest
+    container_name: meu_nginx
+    ports:
+      - "4500:80"   # porta do navegador
+    volumes:
+      - ./php:/var/www/html
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - php
